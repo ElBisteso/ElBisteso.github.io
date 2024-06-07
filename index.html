@@ -68,7 +68,7 @@
             display: inline-block;
             margin: 0 10px;
             border-radius: 10px;
-            width: 200px; /* Adjust the size of the images as needed */
+            width: 200px;
             height: auto;
             cursor: pointer;
         }
@@ -175,17 +175,17 @@
             });
         }
 
-        // Slider functionality
+        // Slider 
         let slider = document.querySelector('.slider');
         let scrollAmount = 0;
 
         function slideImages() {
+            slider.style.transform = `translateX(-${scrollAmount}px)`;
             scrollAmount++;
+
+            // Reset the scroll amount if it has scrolled through all images
             if (scrollAmount >= slider.scrollWidth / 2) {
-                slider.scrollTo(0, 0);
                 scrollAmount = 0;
-            } else {
-                slider.scrollBy(1, 0);
             }
         }
 
